@@ -358,18 +358,18 @@ input[type=submit] {
 }
 
 /*--------------------------------toggle-read--------------------------------------------------*/
-.toggle_read{
+.toggle_read {
     display: flex;
     position: absolute;
-    bottom:15%;
-    left:20%;
+    bottom: 15%;
+    left: 20%;
     color: #fdca3d;
     font-weight: 600;
     align-items: center;
     gap: 1rem;
 }
 
-.toggle_container{
+.toggle_container {
     width: 4rem;
     height: 2rem;
     background-color: #eef2f3;
@@ -378,7 +378,7 @@ input[type=submit] {
     position: relative;
 }
 
-.toggler{
+.toggler {
     position: absolute;
     width: 2rem;
     height: 2rem;
@@ -389,11 +389,11 @@ input[type=submit] {
     transition: all 0.25s ease-in-out;
 }
 
-.toggle_container.toggled{
+.toggle_container.toggled {
     background-color: #c0e385;
 }
 
-.toggler.toggled{
+.toggler.toggled {
     background-color: #0e5252;
     box-shadow: 0 0 5px 0 #0e5252;
     right: 0;

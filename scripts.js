@@ -2,7 +2,8 @@ let myLibrary = []
 
 let view_book = document.querySelector(".view_book");
 view_book.addEventListener("click", () => {
-    scrollview() });
+    scrollview()
+});
 let submit = document.querySelector("input[type=submit]");
 submit.addEventListener("click", addBookToLibrary);
 
@@ -12,10 +13,10 @@ add_book.addEventListener("click", add_books)
 let x = document.querySelector("#x");
 x.addEventListener("click", remove_popup)
 
-let bookspace_grid =document.getElementById("bookspace_grid");
+let bookspace_grid = document.getElementById("bookspace_grid");
 
-function RemoveBook(ind){
-    myLibrary.splice(ind,1);
+function RemoveBook(ind) {
+    myLibrary.splice(ind, 1);
     render(myLibrary);
 }
 
@@ -24,14 +25,16 @@ function Book(name, author, pages, read) {
     this.author = author;
     this.pages = pages;
 }
-Book.prototype.reads = 0;
-function render(myLibrary){
-    bookspace_grid.innerHTML="";
 
-    for(let i=0;i<myLibrary.length;i++){
+Book.prototype.reads = 0;
+
+function render(myLibrary) {
+    bookspace_grid.innerHTML = "";
+
+    for (let i = 0; i < myLibrary.length; i++) {
 
         let bookIN = document.createElement("div");
-        if((i+1)%2!==0) {
+        if ((i + 1) % 2 !== 0) {
             bookIN.innerHTML = `<p class="font_odd__title">${myLibrary[i].name}<p>
                 <p class="font_odd__authors">${myLibrary[i].author}</p>
                 <p class="font_odd__pages">${myLibrary[i].pages} Pages</p>
@@ -49,8 +52,7 @@ function render(myLibrary){
                 </svg>`;
 
 
-        }
-        else{
+        } else {
             bookIN.innerHTML = `<p class="font_even__title">${myLibrary[i].name}<p>
                 <p class="font_even__authors">${myLibrary[i].author}</p>
                 <p class="font_even__pages">${myLibrary[i].pages} Pages</p>
@@ -73,14 +75,15 @@ function render(myLibrary){
 
 }
 
-function togglers(ind){
-   let toggle_container = document.querySelector(`.toggle_container.class${ind}`);
-   let toggler = document.querySelector(`.toggler.class${ind}`);
-   toggle_container.classList.toggle("toggled");
-   toggler.classList.toggle("toggled");
+function togglers(ind) {
+    let toggle_container = document.querySelector(`.toggle_container.class${ind}`);
+    let toggler = document.querySelector(`.toggler.class${ind}`);
+    toggle_container.classList.toggle("toggled");
+    toggler.classList.toggle("toggled");
 
-   console.log(toggle_container);
+    console.log(toggle_container);
 }
+
 function remove_popup() {
     add_popup = document.querySelector(".main__bookSpace_popup");
     add_popup.classList.add("hidden");
