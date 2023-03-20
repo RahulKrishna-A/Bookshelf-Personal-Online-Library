@@ -302,15 +302,18 @@ input[type=submit] {
     right: 10px;
 
 }
-.x_books{
+
+.x_books {
     position: absolute;
-    top:10px;
+    top: 10px;
     right: 10px;
     color: #808283;
 }
-.x_books:hover{
+
+.x_books:hover {
     color: #e61442;
 }
+
 /*-------------------even---------------------------*/
 #bookspace_grid > div:nth-child(even) {
     background-image: url("./Assets/cover2.png");
@@ -352,4 +355,47 @@ input[type=submit] {
 #bookspace_grid > div:hover {
     box-shadow: 2px 2px 7px 2px #0e5252;
     transform: scale(1.02);
+}
+
+/*--------------------------------toggle-read--------------------------------------------------*/
+.toggle_read{
+    display: flex;
+    position: absolute;
+    bottom:15%;
+    left:20%;
+    color: #fdca3d;
+    font-weight: 600;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle_container{
+    width: 4rem;
+    height: 2rem;
+    background-color: #eef2f3;
+    border-radius: 2rem;
+    background-color: rgba(217, 174, 174, 0.97);
+    position: relative;
+}
+
+.toggler{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #d22121;
+    left: 0;
+    box-shadow: 0 0 5px 0 #d22121;
+    transition: all 0.25s ease-in-out;
+}
+
+.toggle_container.toggled{
+    background-color: #c0e385;
+}
+
+.toggler.toggled{
+    background-color: #0e5252;
+    box-shadow: 0 0 5px 0 #0e5252;
+    right: 0;
+    left: 2rem;
 }

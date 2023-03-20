@@ -27,6 +27,7 @@ function Book(name, author, pages, read) {
 Book.prototype.reads = 0;
 function render(myLibrary){
     bookspace_grid.innerHTML="";
+
     for(let i=0;i<myLibrary.length;i++){
 
         let bookIN = document.createElement("div");
@@ -34,12 +35,20 @@ function render(myLibrary){
             bookIN.innerHTML = `<p class="font_odd__title">${myLibrary[i].name}<p>
                 <p class="font_odd__authors">${myLibrary[i].author}</p>
                 <p class="font_odd__pages">${myLibrary[i].pages} Pages</p>
-            <svg onclick="RemoveBook(${i})" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                <svg onclick="RemoveBook(${i})" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                  class="x_books">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>`;
+                <div class="toggle_read">
+                   <p>READ?</p>
+                   <div onclick="togglers(${i})" class="toggle_container class${i}">
+                       <div class="toggler class${i}"></div>
+                   </div>
+                </div>
+                </svg>`;
+
+
         }
         else{
             bookIN.innerHTML = `<p class="font_even__title">${myLibrary[i].name}<p>
@@ -50,11 +59,27 @@ function render(myLibrary){
                      class="x_books" >
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>`;
+                </svg>
+                <div class="toggle_read">
+                    <p>READ?</p>
+                    <div onclick="togglers(${i})" class="toggle_container class${i}">
+                        <div class="toggler class${i}"></div>
+                    </div>
+                  </div>`;
+
         }
         bookspace_grid.append(bookIN);
     }
 
+}
+
+function togglers(ind){
+   let toggle_container = document.querySelector(`.toggle_container.class${ind}`);
+   let toggler = document.querySelector(`.toggler.class${ind}`);
+   toggle_container.classList.toggle("toggled");
+   toggler.classList.toggle("toggled");
+
+   console.log(toggle_container);
 }
 function remove_popup() {
     add_popup = document.querySelector(".main__bookSpace_popup");
