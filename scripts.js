@@ -2,36 +2,55 @@ let myLibrary = []
 
 let view_book = document.querySelector(".view_book");
 view_book.addEventListener("click", () => {
-    scrollview()
-});
+    scrollview() });
 let submit = document.querySelector("input[type=submit]");
 submit.addEventListener("click", addBookToLibrary);
+
 let add_book = document.querySelector(".add_book");
 add_book.addEventListener("click", add_books)
+
 let x = document.querySelector("#x");
 x.addEventListener("click", remove_popup)
+
 let bookspace_grid =document.getElementById("bookspace_grid");
-function Book(name, author, pages, read) {
-    this.name = name
-    this.author = author
-    this.pages = pages
-    this.reads = read
+
+function RemoveBook(ind){
+    myLibrary.splice(ind,1);
+    render(myLibrary);
 }
 
+function Book(name, author, pages, read) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+}
+Book.prototype.reads = 0;
 function render(myLibrary){
     bookspace_grid.innerHTML="";
     for(let i=0;i<myLibrary.length;i++){
-        // console.log(myLibrary[i]);
+
         let bookIN = document.createElement("div");
         if((i+1)%2!==0) {
             bookIN.innerHTML = `<p class="font_odd__title">${myLibrary[i].name}<p>
                 <p class="font_odd__authors">${myLibrary[i].author}</p>
-                <p class="font_odd__pages">${myLibrary[i].pages} Pages</p>`;
+                <p class="font_odd__pages">${myLibrary[i].pages} Pages</p>
+            <svg onclick="RemoveBook(${i})" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="x_books">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>`;
         }
         else{
             bookIN.innerHTML = `<p class="font_even__title">${myLibrary[i].name}<p>
                 <p class="font_even__authors">${myLibrary[i].author}</p>
-                <p class="font_even__pages">${myLibrary[i].pages} Pages</p>`;
+                <p class="font_even__pages">${myLibrary[i].pages} Pages</p>
+                <svg onclick="RemoveBook(${i})" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="x_books" >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>`;
         }
         bookspace_grid.append(bookIN);
     }
@@ -56,6 +75,7 @@ function addBookToLibrary(e) {
     let bname = document.querySelector("#bname");
     let bauthor = document.querySelector("#bauthor");
     let bpages = document.querySelector("#bpage");
+
     if (bname.value === "" || bauthor.value === "" || bpages.value === "") {
         error_message.innerText = "Please fill out all the fields";
         return
