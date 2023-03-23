@@ -68,9 +68,11 @@ function render(myLibrary) {
                 </svg>
                 <div class="toggle_read">
                     <p>READ?</p>
-                    <div onclick="togglers(${i})" class="toggle_container class${i}">
-                        <div class="toggler class${i}"></div>
-                    </div>
+                    ${myLibrary[i].reads ? `<div onClick="togglers(${i})" class="toggle_container class${i} toggled">
+                    <div class="toggler class${i} toggled"></div>
+                    </div>` : ` <div onclick="togglers(${i})" class="toggle_container class${i}">
+                       <div class="toggler class${i}"></div>
+                   </div>`}
                   </div>`;
 
         }
