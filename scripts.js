@@ -43,13 +43,17 @@ function render(myLibrary) {
                  class="x_books">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
                 <div class="toggle_read">
                    <p>READ?</p>
-                   <div onclick="togglers(${i})" class="toggle_container class${i}">
+                   ${myLibrary[i].reads ? `<div onClick="togglers(${i})" class="toggle_container class${i} toggled">
+                <div class="toggler class${i} toggled"></div>
+            </div>`:` <div onclick="togglers(${i})" class="toggle_container class${i}">
                        <div class="toggler class${i}"></div>
-                   </div>
+                   </div>`}
+                   
                 </div>
-                </svg>`;
+                `;
 
 
         } else {
@@ -80,8 +84,13 @@ function togglers(ind) {
     let toggler = document.querySelector(`.toggler.class${ind}`);
     toggle_container.classList.toggle("toggled");
     toggler.classList.toggle("toggled");
+    if(myLibrary[ind].reads === 1){
+        myLibrary[ind].reads = 0;
+    }else{
+        myLibrary[ind].reads = 1;
+    }
 
-    console.log(toggle_container);
+    // console.log(toggle_container);
 }
 
 function remove_popup() {
