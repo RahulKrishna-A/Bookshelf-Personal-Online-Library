@@ -6,7 +6,7 @@ An Online library which allows users to add , remove and modify the book descrip
 
 ## Demo
 
-You can play the game online at https://rahulkrishna-a.github.io/Play-XO/
+You can play the game online at https://rahulkrishna-a.github.io/Bookshelf-Personal-Online-Library/
 
 ##Working Screenshots
 
