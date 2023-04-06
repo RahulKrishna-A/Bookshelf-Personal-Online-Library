@@ -399,3 +399,8 @@ input[type=submit] {
     right: 0;
     left: 2rem;
 }
+
+model-viewer{
+    height: 100%;
+    width: 100%;
+}

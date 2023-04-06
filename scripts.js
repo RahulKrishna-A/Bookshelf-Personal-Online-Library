@@ -20,12 +20,13 @@ function RemoveBook(ind) {
     render(myLibrary);
 }
 
-function Book(name, author, pages, read) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
+class Book {
+    constructor(name, author, pages, read) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+    }
 }
-
 Book.prototype.reads = 0;
 
 function render(myLibrary) {
@@ -48,7 +49,7 @@ function render(myLibrary) {
                    <p>READ?</p>
                    ${myLibrary[i].reads ? `<div onClick="togglers(${i})" class="toggle_container class${i} toggled">
                 <div class="toggler class${i} toggled"></div>
-            </div>`:` <div onclick="togglers(${i})" class="toggle_container class${i}">
+            </div>` : ` <div onclick="togglers(${i})" class="toggle_container class${i}">
                        <div class="toggler class${i}"></div>
                    </div>`}
                    
@@ -86,9 +87,9 @@ function togglers(ind) {
     let toggler = document.querySelector(`.toggler.class${ind}`);
     toggle_container.classList.toggle("toggled");
     toggler.classList.toggle("toggled");
-    if(myLibrary[ind].reads === 1){
+    if (myLibrary[ind].reads === 1) {
         myLibrary[ind].reads = 0;
-    }else{
+    } else {
         myLibrary[ind].reads = 1;
     }
 
