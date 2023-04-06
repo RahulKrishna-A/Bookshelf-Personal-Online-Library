@@ -400,7 +400,151 @@ input[type=submit] {
     left: 2rem;
 }
 
-model-viewer{
-    height: 100%;
-    width: 100%;
+/* -----------------Media queries -----------*/
+@media only screen and (max-width: 600px) {
+
+    #main__nav {
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .nav {
+        width: 10rem;
+        display: flex;
+    }
+
+    .nav.left img {
+        height: 2rem;
+    }
+
+    #nav__header {
+        font-size: 1rem;
+
+    }
+
+    .nav_buttons {
+        width: 5rem;
+        color: white;
+        border-radius: 8px;
+        height: 2rem;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    #myGit {
+        height: 2rem;
+        width: 2rem;
+        margin-left: 1rem;
+    }
+
+    /*--------------------------------poster-------------------------------------------------------------------------*/
+    #main--poster {
+        display: grid;
+        grid-template: 0.7fr 1.3fr/1fr ;
+        width: 100%;
+        height: 91dvh;
+    }
+
+    #main--poster img {
+        margin-top: 2rem;
+        height: 20rem;
+        width: 90%;
+    }
+
+    .poster__left {
+        height: 22rem;
+        display: flex;
+        align-items: center;
+    }
+
+    #poster__hero {
+        margin-top: 8rem;
+        height: 100%;
+        width: 90%;
+    }
+
+    #poster__hero_text {
+        font-size: 3rem;
+        font-family: 'Prompt', sans-serif;
+        font-weight: 900;
+        margin: 0;
+        color: rgb(82, 55, 55);
+    }
+
+    #poster__hero_desc {
+        font-size: 1.5rem;
+        font-family: 'Prompt', sans-serif;
+        font-weight: 100;
+        margin-top: 1rem;
+        color: rgba(92, 62, 62, 0.73);
+    }
+
+
+    #poster__hero_buttons {
+        margin-top: 2rem;
+        display: flex;
+    }
+
+    .buttons {
+        width: 30%;
+        color: white;
+        height: 2rem;
+    }
+
+
+    /*------------------------------------------------------Bookspace-----------------------------*/
+    #main__bookSpace {
+        height: 110vh;
+        padding: 3rem;
+    }
+
+    .main__bookSpace_popup {
+        height: 21rem;
+        width: 60%;
+        left: 20%;
+        top: 20%;
+
+    }
+
+
+    form {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    input {
+        width: 70%;
+        height: 2rem;
+        outline: none;
+        border: none;
+    }
+
+    .main__bookSpace_popup input:focus {
+        outline: greenyellow;
+        border: 1px solid greenyellow;
+    }
+
+    input[type=submit] {
+        width: 30%;
+        align-self: center;
+        margin-left: 2rem;
+        height: 17%;
+    }
+    /*------------------------------------book-grid--------------------------*/
+    #bookspace_grid {
+        display: grid;
+        height: 90%;
+        width: 700%;
+        grid-template-columns: repeat(auto-fill, 200px);
+        gap: 20px;
+    }
+
 }
